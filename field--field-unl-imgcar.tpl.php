@@ -2,7 +2,7 @@
 
 /**
  * @file field.tpl.php
- * unl_wdn template implementation to display a field_unl_imagecarousel field.
+ * unl_four template implementation to display a field_unl_imagecarousel field.
  *
  * Available variables:
  * - $items: An array of field values. Use render() to output them.

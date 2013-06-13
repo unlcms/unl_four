@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * unl_wdn theme implementation to display a block.
+ * unl_four theme implementation to display a block.
  *
  * Available variables:
  * - $block->subject: Block title.

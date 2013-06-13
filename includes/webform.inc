@@ -2,13 +2,13 @@
 
 /**
  * @file
- * Hooks to support UNL_WDN zenform styling and markup
+ * Hooks to support unl_four zenform styling and markup
  */
 
 /**
  * Implements theme_webform_element().
  */
-function unl_wdn_webform_element($variables) {
+function unl_four_webform_element($variables) {
   // Ensure defaults.
   $variables['element'] += array(
     '#title_display' => 'before',
@@ -75,7 +75,7 @@ function unl_wdn_webform_element($variables) {
 /**
  * Implements theme_webform_date().
  */
-function unl_wdn_webform_date($variables) {
+function unl_four_webform_date($variables) {
     $element = $variables['element'];
 
     $element['year']['#attributes']['class'] = array('year');

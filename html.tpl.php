@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * unl_wdn theme implementation to display the basic html structure of a single Drupal page.
+ * unl_four theme implementation to display the basic html structure of a single Drupal page.
  *
  * Variables:
  * - $css: An array of CSS files for the current page.
@@ -31,7 +31,7 @@
  * @see template_process()
  */
 
-$t = unl_wdn_get_instance();
+$t = unl_four_get_instance();
 
 $t->head .= PHP_EOL
           . $head . PHP_EOL

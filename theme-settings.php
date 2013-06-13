@@ -4,7 +4,7 @@
  * Implements hook_form_system_theme_settings_alter().
  * Done as THEMENAME_form_system_theme_settings_alter(), reference http://drupal.org/node/177868
  */
-function unl_wdn_form_system_theme_settings_alter(&$form, &$form_state) {
+function unl_four_form_system_theme_settings_alter(&$form, &$form_state) {
   global $user;
 
   // Add checkboxes to the Toggle Display form to hide UNL template items on an affiliate site
@@ -130,7 +130,7 @@ function unl_wdn_form_system_theme_settings_alter(&$form, &$form_state) {
       '#title' => t('Use WDN beta/development CSS and JavaScript'),
       '#default_value' => theme_get_setting('wdn_beta'),
       '#description' => t('Replaces the links in &lt;head&gt; to the stable /wdn directory with the latest development versions.'),
-      '#access' => _unl_wdn_use_wdn_beta(),
+      '#access' => _unl_four_use_wdn_beta(),
     ),
     'unl_affiliate' => array(
       '#type' => 'checkbox',
@@ -139,19 +139,19 @@ function unl_wdn_form_system_theme_settings_alter(&$form, &$form_state) {
       '#description' => t('Grants access to the Color scheme picker, Logo image settings, Shortcut icon settings on this page for customizing the UNL template.'),
     ),
   );
-  $form['#submit'][] = 'unl_wdn_form_system_theme_settings_submit';
-  _unl_wdn_attach_syntax_highlighting($form['unl_head']);
+  $form['#submit'][] = 'unl_four_form_system_theme_settings_submit';
+  _unl_four_attach_syntax_highlighting($form['unl_head']);
 }
 
 /**
  * Form submit callback.
  */
-function unl_wdn_form_system_theme_settings_submit($form, &$form_state) {
+function unl_four_form_system_theme_settings_submit($form, &$form_state) {
   // Delete existing files, then save them.
   foreach (array('css', 'js') as $type) {
-    _unl_wdn_delete_file('custom.' . $type);
+    _unl_four_delete_file('custom.' . $type);
     if (drupal_strlen(trim($form_state['values']['unl_' . $type])) !== 0) {
-      _unl_wdn_save_file($form_state['values']['unl_' . $type], 'custom.' . $type);
+      _unl_four_save_file($form_state['values']['unl_' . $type], 'custom.' . $type);
       drupal_set_message('File saved to custom/custom.' . $type . ' and will be automatically included on all pages.');
     }
   }
@@ -161,7 +161,7 @@ function unl_wdn_form_system_theme_settings_submit($form, &$form_state) {
 /**
  * Saves CSS & Javascript in the file system (but only if not empty).
  */
-function _unl_wdn_save_file($data, $filename) {
+function _unl_four_save_file($data, $filename) {
   $path = variable_get('unl_custom_code_path', 'public://custom');
   file_prepare_directory($path, FILE_CREATE_DIRECTORY);
   return file_unmanaged_save_data($data, $path . '/' . $filename, FILE_EXISTS_REPLACE);
@@ -170,7 +170,7 @@ function _unl_wdn_save_file($data, $filename) {
 /**
  * Deletes CSS & Javascript from the file system (but only if it exists).
  */
-function _unl_wdn_delete_file($filename) {
+function _unl_four_delete_file($filename) {
   $path = variable_get('unl_custom_code_path', 'public://custom') . '/' . $filename;
   if (file_exists($path)) {
     return file_unmanaged_delete($path);
@@ -181,7 +181,7 @@ function _unl_wdn_delete_file($filename) {
 /**
  * Attaches syntax highlighting to a form element.
  */
-function _unl_wdn_attach_syntax_highlighting(&$form, $css = TRUE, $js = TRUE) {
+function _unl_four_attach_syntax_highlighting(&$form, $css = TRUE, $js = TRUE) {
   $form['#attached']['js'][] = 'sites/all/libraries/codemirror/lib/codemirror.js';
   $form['#attached']['css'][] = 'sites/all/libraries/codemirror/lib/codemirror.css';
   if ($css) {
@@ -191,15 +191,15 @@ function _unl_wdn_attach_syntax_highlighting(&$form, $css = TRUE, $js = TRUE) {
     $form['#attached']['js'][] = 'sites/all/libraries/codemirror/mode/javascript/javascript.js';
   }
   $form['#attached']['css'][] = 'sites/all/libraries/codemirror/theme/default.css';
-  $form['#attached']['js'][] = drupal_get_path('theme', 'unl_wdn') . '/codemirror/unl.js';
-  $form['#attached']['css'][] = drupal_get_path('theme', 'unl_wdn') . '/codemirror/unl.css';
+  $form['#attached']['js'][] = drupal_get_path('theme', 'unl_four') . '/codemirror/unl.js';
+  $form['#attached']['css'][] = drupal_get_path('theme', 'unl_four') . '/codemirror/unl.css';
 }
 
 /**
  * Custom access function to determine if it is staging or live since the live site should not allow WDN dev code to be used.
  * @TODO: Make this better using something other than site_name.
  */
-function _unl_wdn_use_wdn_beta() {
+function _unl_four_use_wdn_beta() {
   $site_name = variable_get('site_name');
   if (strpos($site_name, 'STAGING') === 0) {
     return TRUE;

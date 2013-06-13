@@ -2,7 +2,7 @@
 
 /**
  * @file
- * unl_wdn theme implementation to display a region.
+ * unl_four theme implementation to display a region.
  *
  * Available variables:
  * - $content: The content for this region, typically blocks.

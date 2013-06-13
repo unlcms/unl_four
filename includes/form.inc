@@ -2,13 +2,13 @@
 
 /**
  * @file
- * Hooks to support UNL_WDN zenform styling and markup
+ * Hooks to support unl_four zenform styling and markup
  */
 
 /**
  * Implements theme_form().
  */
-function unl_wdn_form($variables) {
+function unl_four_form($variables) {
   $output = <<<EOF
 <script type="text/javascript">
 // <![CDATA[
@@ -29,7 +29,7 @@ EOF;
 /**
  * Implements theme_fieldset().
  */
-function unl_wdn_fieldset($variables) {
+function unl_four_fieldset($variables) {
   $element = $variables['element'];
 
   if (count($element['#parents']) > 2) {
@@ -61,7 +61,7 @@ function unl_wdn_fieldset($variables) {
 /**
  * Implements theme_form_element().
  */
-function unl_wdn_form_element($variables) {
+function unl_four_form_element($variables) {
   $element = $variables['element'];
   // This is also used in the installer, pre-database setup.
   $t = get_t();
@@ -108,7 +108,7 @@ function unl_wdn_form_element($variables) {
 /**
  * Implements theme_form_element_label().
  */
-function unl_wdn_form_element_label($variables) {
+function unl_four_form_element_label($variables) {
   $element = $variables['element'];
 
   if (!$element['#title']) {
@@ -132,7 +132,7 @@ function unl_wdn_form_element_label($variables) {
 /**
  * Implements theme_checkboxes().
  */
-function unl_wdn_checkboxes($variables) {
+function unl_four_checkboxes($variables) {
   $element = $variables['element'];
   $attributes = array();
   if (isset($element['#id'])) {
@@ -148,7 +148,7 @@ function unl_wdn_checkboxes($variables) {
 /**
  * Implements theme_radios().
  */
-function unl_wdn_radios($variables) {
+function unl_four_radios($variables) {
   $element = $variables['element'];
   $attributes = array();
   if (isset($element['#id'])) {

@@ -2,7 +2,7 @@
 
 /**
  * @file field.tpl.php
- * unl_wdn template implementation to display the value of a field.
+ * unl_four template implementation to display the value of a field.
  *
  * Available variables:
  * - $items: An array of field values. Use render() to output them.

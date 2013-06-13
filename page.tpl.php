@@ -3,7 +3,7 @@ Any real output is being deferred to html.tpl.php
 <?php
 /**
  * @file
- * unl_wdn theme implementation to display a single Drupal page.
+ * unl_four theme implementation to display a single Drupal page.
  *
  * Available variables:
  *
@@ -68,7 +68,7 @@ Any real output is being deferred to html.tpl.php
  * @see template_process()
  */
 
-$t = unl_wdn_get_instance();
+$t = unl_four_get_instance();
 
 // Breadcrumbs
 if (isset($breadcrumb)) {

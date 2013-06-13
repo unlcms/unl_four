@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * unl_wdn theme implementation to display a news item node.
+ * unl_four theme implementation to display a news item node.
  */
 ?>
 <div id="node-<?php print $node->nid; ?><?php print ($view_mode != 'full' ? '-teaser' : ''); ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>

@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * unl_wdn theme implementation to wrap menu blocks.
+ * unl_four theme implementation to wrap menu blocks.
  *
  * Available variables:
  * - $content: The renderable array containing the menu.

@@ -1,6 +1,6 @@
 /**
  * Adds links to enable syntax highlighting to CSS and JS textareas
- *   under admin/appearance/settings/unl_wdn
+ *   under admin/appearance/settings/unl_four
  * This code from cpn (Code Per Node) module.
  */
 

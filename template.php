@@ -11,9 +11,9 @@ if (theme_get_setting('zen_forms')) {
 /**
  * Implements hook_block_view_alter().
  */
-function unl_wdn_block_view_alter(&$data, $block) {
+function unl_four_block_view_alter(&$data, $block) {
   if ($block->module == 'system' && $block->delta == 'main-menu') {
-    return _unl_wdn_block_view_system_main_menu_alter($data, $block);
+    return _unl_four_block_view_system_main_menu_alter($data, $block);
   }
 }
 
@@ -22,22 +22,22 @@ function unl_wdn_block_view_alter(&$data, $block) {
  * this is actually called from unl_block_view_alter() for now. See http://drupal.org/node/1076132
  * Used to determine if a "sub-menu" should be used instead of the normal menu.
  */
-function _unl_wdn_block_view_system_main_menu_alter(&$data, $block) {
-  $current_menu_link = _unl_wdn_get_current_menu_link();
+function _unl_four_block_view_system_main_menu_alter(&$data, $block) {
+  $current_menu_link = _unl_four_get_current_menu_link();
   if ($current_menu_link) {
-    $submenu = _unl_wdn_get_current_submenu($data['content'], $current_menu_link->mlid);
+    $submenu = _unl_four_get_current_submenu($data['content'], $current_menu_link->mlid);
     if (!theme_get_setting('disable_drill_down') && $submenu && $submenu['#original_link']['depth'] > 1) {
       $data['content'] = $submenu['#below'];
     }
   }
-  $data['content'] = _unl_wdn_limit_menu_depth($data['content'], 2);
+  $data['content'] = _unl_four_limit_menu_depth($data['content'], 2);
 }
 
 /**
  * Return the mlid of the currently selected menu item.
  * If the current page has no menu item, use return the mlid of its parent instead.
  */
-function _unl_wdn_get_current_menu_link() {
+function _unl_four_get_current_menu_link() {
   $result = db_select('menu_links')
     ->fields('menu_links')
     ->condition('menu_name', 'main-menu')
@@ -64,13 +64,13 @@ function _unl_wdn_get_current_menu_link() {
 /**
  * Find the the submenu we are currently "drilled-down" to.
  */
-function _unl_wdn_get_current_submenu($menu_links, $current_mlid) {
+function _unl_four_get_current_submenu($menu_links, $current_mlid) {
   foreach (element_children($menu_links) as $index) {
     $menu_item = $menu_links[$index];
     if ($menu_item['#original_link']['mlid'] == $current_mlid) {
       return $menu_item;
     }
-    $sub_menu = _unl_wdn_get_current_submenu($menu_item['#below'], $current_mlid);
+    $sub_menu = _unl_four_get_current_submenu($menu_item['#below'], $current_mlid);
     if ($sub_menu) {
       return $sub_menu;
     }
@@ -81,13 +81,13 @@ function _unl_wdn_get_current_submenu($menu_links, $current_mlid) {
 /**
  * Remove any menu items that are more than $depth levels below the current root.
  */
-function _unl_wdn_limit_menu_depth($menu_links, $depth) {
+function _unl_four_limit_menu_depth($menu_links, $depth) {
   if ($depth == 0) {
     return array();
   }
 
   foreach (element_children($menu_links) as $index) {
-    $menu_links[$index]['#below'] = _unl_wdn_limit_menu_depth($menu_links[$index]['#below'], $depth - 1);
+    $menu_links[$index]['#below'] = _unl_four_limit_menu_depth($menu_links[$index]['#below'], $depth - 1);
   }
 
   return $menu_links;
@@ -96,7 +96,7 @@ function _unl_wdn_limit_menu_depth($menu_links, $depth) {
 /**
  * Implementation of hook_html_head_alter().
  */
-function unl_wdn_html_head_alter(&$head_elements) {
+function unl_four_html_head_alter(&$head_elements) {
   $home_path = '<front>';
 
   // If <link rel="home"> has already been set elsewhere (in a Context for example) then return...
@@ -108,7 +108,7 @@ function unl_wdn_html_head_alter(&$head_elements) {
 
   // If we are in a drilled down menu, change the home link to the drilled down item.
   if (!theme_get_setting('disable_drill_down')) {
-    $current_menu_link = _unl_wdn_get_current_menu_link();
+    $current_menu_link = _unl_four_get_current_menu_link();
     if ($current_menu_link && $current_menu_link->depth > 1) {
       $home_path = drupal_get_path_alias($current_menu_link->link_path);
     }
@@ -129,16 +129,16 @@ function unl_wdn_html_head_alter(&$head_elements) {
 /**
  * Implements hook_css_alter().
  */
-function unl_wdn_css_alter(&$css) {
+function unl_four_css_alter(&$css) {
   if (!theme_get_setting('unl_affiliate')) {
-    unset($css[drupal_get_path('theme', 'unl_wdn') . '/css/colors.css']);
+    unset($css[drupal_get_path('theme', 'unl_four') . '/css/colors.css']);
   }
 }
 
 /**
  * Implements template_preprocess_block().
  */
-function unl_wdn_preprocess_block(&$vars) {
+function unl_four_preprocess_block(&$vars) {
   // Add Menu Block class to book navigation block so that they can share CSS.
   if ($vars['block_html_id'] == 'block-book-navigation') {
     $vars['classes_array'][] = 'block-menu-block';
@@ -148,7 +148,7 @@ function unl_wdn_preprocess_block(&$vars) {
 /**
  * Implements template_preprocess_field().
  */
-function unl_wdn_preprocess_field(&$vars, $hook) {
+function unl_four_preprocess_field(&$vars, $hook) {
   $element = $vars['element'];
   // Set the field label tag to a header or default to div
   if (strlen($element['#label_display']) == 2 && substr($element['#label_display'], 0, 1) == 'h') {
@@ -162,8 +162,8 @@ function unl_wdn_preprocess_field(&$vars, $hook) {
 /**
  * Implements template_preprocess_html().
  */
-function unl_wdn_preprocess_html(&$vars, $hook) {
-  // Add the CSS and JS files that are generated from the unl_wdn appearance settings page
+function unl_four_preprocess_html(&$vars, $hook) {
+  // Add the CSS and JS files that are generated from the unl_four appearance settings page
   foreach (array('css', 'js') as $type) {
     $file = variable_get('unl_custom_code_path', 'public://custom') . '/custom.' . $type;
     if (is_file($file)) {
@@ -211,7 +211,7 @@ function unl_wdn_preprocess_html(&$vars, $hook) {
 /**
  * Implements template_process_html().
  */
-function unl_wdn_process_html(&$vars) {
+function unl_four_process_html(&$vars) {
   // Hook into color.module.
   if (theme_get_setting('unl_affiliate') && module_exists('color')) {
     _color_html_alter($vars);
@@ -222,10 +222,10 @@ function unl_wdn_process_html(&$vars) {
  * Implements template_preprocess_region().
  * Adds grid classes for sidebar_first, sidebar_second, and content regions.
  */
-function unl_wdn_preprocess_region(&$vars) {
+function unl_four_preprocess_region(&$vars) {
   static $grid;
   if (!isset($grid)) {
-    $grid = _unl_wdn_grid_info();
+    $grid = _unl_four_grid_info();
   }
 
   $vars['region_name'] = str_replace('_', '-', $vars['region']);
@@ -253,10 +253,10 @@ function unl_wdn_preprocess_region(&$vars) {
 /**
  * Implements template_preprocess_node().
  */
-function unl_wdn_preprocess_node(&$vars) {
+function unl_four_preprocess_node(&$vars) {
   // Add forms css file if content type is webform.  Only done on webform to prevent css conflicts with zenform on basic pages.
   if ($vars['type'] == 'webform' && !theme_get_setting('zen_forms')) {
-    $path = drupal_get_path('theme', 'unl_wdn');
+    $path = drupal_get_path('theme', 'unl_four');
     drupal_add_css($path . '/css/form.css');
   }
   // Drupal doesn't correctly set the $page flag for the preview on node/add/page which results in the <h2> being displayed in modules/node/node.tpl.php
@@ -274,7 +274,7 @@ function unl_wdn_preprocess_node(&$vars) {
 /**
  * Implements template_preprocess_username().
  */
-function unl_wdn_preprocess_username(&$vars) {
+function unl_four_preprocess_username(&$vars) {
   // Link the displayed name to UNL Directory rather than Drupal user page
   $vars['link_path'] = 'http://directory.unl.edu/?uid=' . user_load($vars['account']->uid)->name;
   $vars['link_attributes'] = array('title' => t('View user in the UNL Directory.'));
@@ -283,7 +283,7 @@ function unl_wdn_preprocess_username(&$vars) {
 /**
  * Implements hook_username_alter().
  */
-function unl_wdn_username_alter(&$name, $account) {
+function unl_four_username_alter(&$name, $account) {
   if ($account->uid) {
     // If the CAS module is enabled, we should have their full name.
     $user = user_load_by_name($name);
@@ -297,7 +297,7 @@ function unl_wdn_username_alter(&$name, $account) {
 /**
  * Implements template_preprocess_page().
  */
-function unl_wdn_preprocess_page(&$vars, $hook) {
+function unl_four_preprocess_page(&$vars, $hook) {
 
   $loginUrl = url('user', array('query' => drupal_get_destination()));
   $script = 'WDN.jQuery(function() {' . PHP_EOL
@@ -317,7 +317,7 @@ function unl_wdn_preprocess_page(&$vars, $hook) {
 /**
  * Implements template_process_page().
  */
-function unl_wdn_process_page(&$vars) {
+function unl_four_process_page(&$vars) {
   // Hook into color.module.
   if (theme_get_setting('unl_affiliate') && module_exists('color')) {
     _color_page_alter($vars);
@@ -327,7 +327,7 @@ function unl_wdn_process_page(&$vars) {
 /**
  * Called in html.tpl.php and page.tpl.php.
  */
-function unl_wdn_get_instance() {
+function unl_four_get_instance() {
   static $instance;
   if (!$instance) {
     set_include_path(dirname(__FILE__) . '/lib/php' . PATH_SEPARATOR . get_include_path());
@@ -371,16 +371,16 @@ function unl_wdn_get_instance() {
 /**
  * Implements theme_breadcrumb().
  */
-function unl_wdn_breadcrumb($variables) {
+function unl_four_breadcrumb($variables) {
   $breadcrumbs = $variables['breadcrumb'];
 
   if (count($breadcrumbs) == 0) {
-    $breadcrumbs[] = '<a href="">' . check_plain(unl_wdn_get_site_name_abbreviated()) . '</a>';
+    $breadcrumbs[] = '<a href="">' . check_plain(unl_four_get_site_name_abbreviated()) . '</a>';
   }
   else {
     //Change 'Home' to be $site_name
     array_unshift($breadcrumbs,
-                  str_replace('Home', check_plain(unl_wdn_get_site_name_abbreviated()),
+                  str_replace('Home', check_plain(unl_four_get_site_name_abbreviated()),
                   array_shift($breadcrumbs)));
   }
 
@@ -418,11 +418,11 @@ function unl_wdn_breadcrumb($variables) {
  * Implements theme_file_icon().
  * File icons are provided as css background sprites in UNL WDN template project.
  */
-function unl_wdn_file_icon($variables) {
+function unl_four_file_icon($variables) {
   return '';
 }
 
-function unl_wdn_menu_item($link, $has_children, $menu = '', $in_active_trail = FALSE, $extra_class = NULL) {
+function unl_four_menu_item($link, $has_children, $menu = '', $in_active_trail = FALSE, $extra_class = NULL) {
   if ($extra_class) {
     return '<li class="' . $extra_class . '">' . $link . $menu . '</li>' . "\n";
   }
@@ -434,7 +434,7 @@ function unl_wdn_menu_item($link, $has_children, $menu = '', $in_active_trail = 
 /**
  * Implements theme_menu_tree().
  */
-function unl_wdn_menu_tree($variables) {
+function unl_four_menu_tree($variables) {
   $tree = $variables['tree'];
   return '<ul>' . $tree . '</ul>' . PHP_EOL;
 }
@@ -442,7 +442,7 @@ function unl_wdn_menu_tree($variables) {
 /**
  * Implements theme_menu_local_tasks().
  */
-function unl_wdn_menu_local_tasks($variables) {
+function unl_four_menu_local_tasks($variables) {
   $output = '';
 
   if (!empty($variables['primary'])) {
@@ -462,7 +462,7 @@ function unl_wdn_menu_local_tasks($variables) {
 /**
  * Implements theme_menu_local_task().
  */
-function unl_wdn_menu_local_task($variables) {
+function unl_four_menu_local_task($variables) {
   $link = $variables['element']['#link'];
   $link_text = $link['title'];
 
@@ -481,7 +481,7 @@ function unl_wdn_menu_local_task($variables) {
 /**
  * Implements theme_pager().
  */
-function unl_wdn_pager($variables) {
+function unl_four_pager($variables) {
   // This is straight-copied from the default except with css class names changed and wdn css loaded
   // http://api.drupal.org/api/drupal/includes--pager.inc/function/theme_pager/7
   drupal_add_js('WDN.loadCSS("/wdn/templates_3.0/css/content/pagination.css");', 'inline');
@@ -594,7 +594,7 @@ function unl_wdn_pager($variables) {
   }
 }
 
-function unl_wdn_status_messages($variables) {
+function unl_four_status_messages($variables) {
   $display = $variables['display'];
 
   $output = '';
@@ -658,7 +658,7 @@ EOF;
 /**
  * Return the abbreviated site name, assuming it has been set. Otherwise return the full site name.
  */
-function unl_wdn_get_site_name_abbreviated() {
+function unl_four_get_site_name_abbreviated() {
   if (theme_get_setting('site_name_abbreviation')) {
     return theme_get_setting('site_name_abbreviation');
   }
@@ -671,7 +671,7 @@ function unl_wdn_get_site_name_abbreviated() {
  * Generate grid numbers for sidebar_first, sidebar_second, and content regions.
  * Based on work in the Fusion theme (fusion_core_grid_info()).
  */
-function _unl_wdn_grid_info() {
+function _unl_four_grid_info() {
   static $grid;
   if (!isset($grid)) {
     $grid = array();
