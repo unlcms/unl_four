@@ -46,10 +46,10 @@ $html = $t->toHtml();
 
 $html = str_replace(
           array('<body class="',
-                '<nav class="skipnav">',
+                '<nav class="skipnav" role="navigation">',
                 '</body>'),
           array('<body '.$attributes.' class="'.$classes.' ',
-                $page_top . '<nav class="skipnav">',
+                $page_top . '<nav class="skipnav" role="navigation">',
                 $page_bottom . '</body>'),
           $html);
 
