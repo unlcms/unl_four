@@ -336,10 +336,10 @@ function unl_four_get_instance() {
 
     // Use NULL caching service so templates are pulled from local tpl_cache
     UNL_Templates::setCachingService(new UNL_Templates_CachingService_Null());
-    UNL_Templates::$options['version'] = UNL_Templates::VERSION3x1;
+    UNL_Templates::$options['version'] = 4;
 
     // Set a default template
-    $template = 'Local';
+    $template = 'Fixed';
 
     if (false === theme_get_setting('toggle_main_menu')) {
       $template = 'Document';
