@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd" packagerversion="2.0.0">
+<package xmlns="http://pear.php.net/dtd/package-2.1" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0     http://pear.php.net/dtd/tasks-1.0.xsd     http://pear.php.net/dtd/package-2.1     http://pear.php.net/dtd/package-2.1.xsd">
  <name>UNL_DWT</name>
  <channel>pear.unl.edu</channel>
  <summary>This package generates php class files (objects) from Dreamweaver template files.
@@ -13,8 +13,8 @@ This package generates php class files (objects) from Dreamweaver template files
   <email>brett.bieber@gmail.com</email>
   <active>yes</active>
  </lead>
- <date>2013-05-24</date>
- <time>10:02:57</time>
+ <date>2013-06-14</date>
+ <time>11:28:40</time>
  <version>
   <release>0.9.0</release>
   <api>0.7.1</api>
@@ -32,19 +32,19 @@ Bug Fixes
 </notes>
  <contents>
   <dir name="/">
-   <file role="php" name="php/UNL/DWT/Scanner.php" md5sum="276e82e5db587c9c18a100e1e877082e"/>
-   <file role="php" name="php/UNL/DWT/Region.php" md5sum="858136d43bf29868dca876783e51d196"/>
-   <file role="php" name="php/UNL/DWT/Generator.php" md5sum="a3b933a0d7f8d81f72836bb2c5fb6914"/>
-   <file role="php" name="php/UNL/DWT/Exception.php" md5sum="5b99b44fbfde7349c6b9e6d9be78e9dc"/>
-   <file role="php" name="php/UNL/DWT/createTemplates.php" md5sum="9089565d275b52e0cd65c52edd50ef18"/>
-   <file role="php" name="php/UNL/DWT.php" md5sum="ca9d707c266ad9150e39d1a9a60c5643"/>
-   <file role="doc" name="doc/pear.unl.edu/UNL_DWT/examples/scanner_example.php" md5sum="2d16f0e62c4227aa28108bf78d74156a"/>
-   <file role="doc" name="doc/pear.unl.edu/UNL_DWT/examples/basic/Template_style1.tpl" md5sum="b524ef4684be7dba47ed8c245577347a"/>
-   <file role="doc" name="doc/pear.unl.edu/UNL_DWT/examples/basic/Template_style1.php" md5sum="096998b112a1e27bddc6c171380d590e"/>
-   <file role="doc" name="doc/pear.unl.edu/UNL_DWT/examples/basic/template_style1.dwt" md5sum="0d5a4f5ca86e9c2a3c0050f39acbb034"/>
-   <file role="doc" name="doc/pear.unl.edu/UNL_DWT/examples/basic/example_style1.php" md5sum="d3f43ac017b9bdf1819cf05a4c4a33a2"/>
-   <file role="doc" name="doc/pear.unl.edu/UNL_DWT/examples/basic/example.test.ini" md5sum="28a080af44b5db3f28c73fa91cdabe99"/>
-   <file role="doc" name="doc/pear.unl.edu/UNL_DWT/examples/basic/example.ini" md5sum="d5f99a1b621d226611d2fe93761db93d"/>
+   <file role="php" name="src/UNL/DWT/Scanner.php" md5sum="6c5eb67393911ae5b5a87317200d95ba"/>
+   <file role="php" name="src/UNL/DWT/Region.php" md5sum="7a16a51094fc2da8dc06ef9c3a08bafc"/>
+   <file role="php" name="src/UNL/DWT/Generator.php" md5sum="a3b933a0d7f8d81f72836bb2c5fb6914"/>
+   <file role="php" name="src/UNL/DWT/Exception.php" md5sum="5b99b44fbfde7349c6b9e6d9be78e9dc"/>
+   <file role="php" name="src/UNL/DWT/createTemplates.php" md5sum="9089565d275b52e0cd65c52edd50ef18"/>
+   <file role="php" name="src/UNL/DWT.php" md5sum="bf24db2ee4da4cc7a99c57ad5ade4506"/>
+   <file role="doc" name="docs/examples/scanner_example.php" md5sum="2d16f0e62c4227aa28108bf78d74156a"/>
+   <file role="doc" name="docs/examples/basic/Template_style1.tpl" md5sum="b524ef4684be7dba47ed8c245577347a"/>
+   <file role="doc" name="docs/examples/basic/Template_style1.php" md5sum="096998b112a1e27bddc6c171380d590e"/>
+   <file role="doc" name="docs/examples/basic/template_style1.dwt" md5sum="0d5a4f5ca86e9c2a3c0050f39acbb034"/>
+   <file role="doc" name="docs/examples/basic/example_style1.php" md5sum="d3f43ac017b9bdf1819cf05a4c4a33a2"/>
+   <file role="doc" name="docs/examples/basic/example.test.ini" md5sum="28a080af44b5db3f28c73fa91cdabe99"/>
+   <file role="doc" name="docs/examples/basic/example.ini" md5sum="d5f99a1b621d226611d2fe93761db93d"/>
   </dir>
  </contents>
  <dependencies>
