@@ -4,6 +4,11 @@
  * that need to be made for WDN styles to work with CMS DOM structure.
  */
 
+/* Override Drupal's decsion to make all labels bold. */
+label {
+    font-weight: inherit;
+}
+
 /* Position tabs at the top right of maincontent */
 #maincontent ul.wdn_tabs.cms_tabs {position: absolute; right: 0; top: -60px; width: auto;}
 /* Related Links region contextual links */
