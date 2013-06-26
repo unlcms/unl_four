@@ -31,3 +31,10 @@ settings[sidebar_second_width] = 3
 settings[zen_forms] = 0
 settings[wdn_beta] = 0
 settings[unl_affiliate] = 0
+
+breakpoints[wdn-bp0] = (min-width: 0px)
+breakpoints[wdn-bp1] = (min-width: 480px)
+breakpoints[wdn-bp2] = (min-width: 768px)
+breakpoints[wdn-bp3] = (min-width: 980px)
+breakpoints[wdn-bp4] = (min-width: 1044px)
+breakpoints[wdn-bp5] = (min-width: 1600px)
