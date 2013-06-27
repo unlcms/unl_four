@@ -40,7 +40,7 @@
  * @see template_process()
  */
 
-if ($block->region != 'navlinks') { ?>
+if ($block->region != 'navlinks' && $block->region != 'content') { ?>
 <div id="<?php print $block_html_id; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
 
   <?php print render($title_prefix); ?>

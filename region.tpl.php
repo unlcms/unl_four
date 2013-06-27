@@ -28,10 +28,10 @@
  */
 ?>
 
-<?php if ($region != 'navlinks'): ?>
+<?php if ($region != 'navlinks' && $region != 'content'): ?>
 <div id="<?php print $region_name; ?>" class="<?php print $classes; ?>">
 <?php endif;?>
   <?php print $content; ?>
-<?php if ($region != 'navlinks'): ?>
+<?php if ($region != 'navlinks' && $region != 'content'): ?>
 </div>
 <?php endif;?>
