@@ -1,14 +1,6 @@
 <?php
 
 /**
- * zenform implementation
- */
-if (theme_get_setting('zen_forms')) {
-  require_once dirname(__FILE__) . '/includes/form.inc';
-  require_once dirname(__FILE__) . '/includes/webform.inc';
-}
-
-/**
  * Implements hook_block_view_alter().
  */
 function unl_four_block_view_alter(&$data, $block) {
@@ -254,8 +246,8 @@ function unl_four_preprocess_region(&$vars) {
  * Implements template_preprocess_node().
  */
 function unl_four_preprocess_node(&$vars) {
-  // Add forms css file if content type is webform.  Only done on webform to prevent css conflicts with zenform on basic pages.
-  if ($vars['type'] == 'webform' && !theme_get_setting('zen_forms')) {
+  // Add forms css file if content type is webform.
+  if ($vars['type'] == 'webform') {
     $path = drupal_get_path('theme', 'unl_four');
     drupal_add_css($path . '/css/form.css');
   }

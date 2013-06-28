@@ -119,12 +119,6 @@ function unl_four_form_system_theme_settings_alter(&$form, &$form_state) {
       '#default_value' => theme_get_setting('disable_drill_down'),
       '#description' => t('Turns off changing the navigation if you are 2+ levels deep with even deeper enabled menu links.'),
     ),
-    'zen_forms' => array(
-      '#type' => 'checkbox',
-      '#title' => t('Use zen forms'),
-      '#default_value' => theme_get_setting('zen_forms'),
-      '#description' => t('Transforms all forms into the list-based zen forms.'),
-    ),
     'wdn_beta' => array(
       '#type' => 'checkbox',
       '#title' => t('Use WDN beta/development CSS and JavaScript'),
