@@ -10,7 +10,14 @@ label {
 }
 
 /* Position tabs at the top right of maincontent */
-#maincontent ul.wdn_tabs.cms_tabs {position: absolute; right: 0; top: -60px; width: auto;}
+#maincontent ul.wdn_tabs.cms_tabs {
+  position: absolute;
+  right: 0;
+  top: -55px;
+  background-color: #F6F5EA;
+  opacity: 0.96;
+  width: auto;
+}
 /* Related Links region contextual links */
 #wdn_footer_related a.contextual-links-trigger {display: none;}
 #wdn_footer_related .contextual-links-region:hover a.contextual-links-trigger {display: block;}
