@@ -166,6 +166,8 @@ function unl_four_preprocess_html(&$vars, $hook) {
 
   // Affiliate Template
   if (theme_get_setting('unl_affiliate')) {
+    drupal_add_css(drupal_get_path('module', 'unl_four') . '/css/colors.css', array('type' => 'file', 'group' => CSS_THEME, 'every_page' => TRUE));
+
     if (theme_get_setting('toggle_logo') && !theme_get_setting('default_logo')) {
       $logo_css = '#header #logo{background-image:url('.file_create_url(theme_get_setting('logo_path')).'); background-position:13px 10px;}
                    @media (max-width:1040px) {#header #logo{background-size:90%; background-position:2px 3px;}}';

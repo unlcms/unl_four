@@ -4,8 +4,10 @@ screenshot = screenshot.png
 core = 7.x
 engine = phptemplate
 
-stylesheets[all][] = style.css
-stylesheets[all][] = css/colors.css
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/book.css
+stylesheets[all][] = css/menu-block.css
+stylesheets[all][] = css/views.css
 
 regions[page_top] = Page top
 regions[page_bottom] = Page bottom
