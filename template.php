@@ -247,6 +247,9 @@ function unl_four_preprocess_region(&$vars) {
     if ($grid['regions'][$vars['region']]['width'] != 12) {
       $vars['classes_array'][] = 'grid' . $grid['regions'][$vars['region']]['width'];
     }
+    else {
+      $vars['classes_array'][] = 'wdn-band';
+    }
   }
 
   // Sidebar regions receive common 'sidebar' class
@@ -265,8 +268,8 @@ function unl_four_preprocess_region(&$vars) {
     $vars['classes_array'][] = 'first';
   }
 
-  // Content regions receive 'wdn-band' class
-  $content_regions = array('content', 'content_top', 'content_bottom');
+  // Content top and bottom regions receive 'wdn-band' class
+  $content_regions = array('content_top', 'content_bottom');
   if (in_array($vars['region'], $content_regions)) {
     $vars['classes_array'][] = 'wdn-band';
   }

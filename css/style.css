@@ -4,14 +4,6 @@
  * that need to be made for WDN styles to work with CMS DOM structure.
  */
 
-
-.field-name-field-wdn-band-bg img.wdn-stretch {
-  position: absolute;
-}
-.node .content.wdn-inner-wrapper {
-  position: relative;
-}
-
 /* Override Drupal's decsion to make all labels bold. */
 label {
   font-weight: inherit;
@@ -111,6 +103,26 @@ ul.links.inline {
 }
 
 
+/**
+ * Bands support
+ */
+.content-top .field-collection-view,
+.content-bottom .field-collection-view {
+  overflow: hidden;
+}
+.content-top .node > h2,
+.content-bottom .node > h2 {
+  display: none;
+}
+.field-collection-view-links {
+  display: none;
+}
+.field-name-field-wdn-band-bg img.wdn-stretch {
+  position: absolute;
+}
+.node .content.wdn-inner-wrapper {
+  position: relative;
+}
 
 
 /* taxonomy */
