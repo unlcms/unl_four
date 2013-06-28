@@ -104,7 +104,7 @@ ul.links.inline {
 
 
 /**
- * Bands support
+ * WDN bands support
  */
 .content-top .field-collection-view,
 .content-bottom .field-collection-view {
@@ -122,6 +122,11 @@ ul.links.inline {
 }
 .node .content.wdn-inner-wrapper {
   position: relative;
+}
+#maincontent > .wdn-band:after {
+  clear: both;
+  content: "";
+  display: block;
 }
 
 

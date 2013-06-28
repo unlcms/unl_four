@@ -110,6 +110,8 @@ else {
                       . render($page['content_top']) . PHP_EOL;
 }
 
+$t->maincontentarea .= '<div class="wdn-band">' . PHP_EOL;
+
 if (isset($page['sidebar_first'])) {
   $t->maincontentarea .= render($page['sidebar_first']) . PHP_EOL;
 }
@@ -117,6 +119,8 @@ $t->maincontentarea .= render($page['content']) . PHP_EOL;
 if (isset($page['sidebar_second'])) {
   $t->maincontentarea .= render($page['sidebar_second']) . PHP_EOL;
 }
+
+$t->maincontentarea .= '</div>' . PHP_EOL;
 
 $t->maincontentarea .= render($page['content_bottom']) . PHP_EOL;
 
