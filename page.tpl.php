@@ -106,7 +106,8 @@ if ($format == 'partial') {
 else {
   $t->maincontentarea = $messages . PHP_EOL
                       . render($tabs) . PHP_EOL
-                      . render($action_links) . PHP_EOL;
+                      . render($action_links) . PHP_EOL
+                      . render($page['content_top']) . PHP_EOL;
 }
 
 if (isset($page['sidebar_first'])) {
@@ -117,6 +118,13 @@ if (isset($page['sidebar_second'])) {
   $t->maincontentarea .= render($page['sidebar_second']) . PHP_EOL;
 }
 
+$t->maincontentarea .= render($page['content_bottom']) . PHP_EOL;
+
+// Optional Footer
+if (isset($page['optionalfooter'])) {
+  $t->optionalfooter = render($page['optionalfooter']);
+}
+
 // Related Links
 if (isset($page['leftcollinks'])) {
   $t->leftcollinks = render($page['leftcollinks']);
@@ -125,11 +133,6 @@ if (isset($page['leftcollinks'])) {
 // Contact Us
 if (isset($page['contactinfo'])) {
   $t->contactinfo = render($page['contactinfo']);
-}
-
-// Optional Footer
-if (isset($page['optionalfooter'])) {
-  $t->optionalfooter = render($page['optionalfooter']);
 }
 
 // Copyright Area

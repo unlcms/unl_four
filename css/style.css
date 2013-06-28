@@ -4,6 +4,14 @@
  * that need to be made for WDN styles to work with CMS DOM structure.
  */
 
+
+.field-name-field-wdn-band-bg img.wdn-stretch {
+  position: absolute;
+}
+.node .content.wdn-inner-wrapper {
+  position: relative;
+}
+
 /* Override Drupal's decsion to make all labels bold. */
 label {
   font-weight: inherit;

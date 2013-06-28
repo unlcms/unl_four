@@ -149,6 +149,22 @@ function unl_four_preprocess_field(&$vars, $hook) {
   else {
     $vars['label_html_tag'] = 'div';
   }
+
+  // Force hide field label of field_wdn_band_bg
+  if ($vars['element']['#field_name'] == 'field_wdn_band_bg') {
+    $vars['element']['#label_display'] = 'hidden';
+    $vars['label_hidden'] = TRUE;
+  }
+}
+
+/**
+ * Implements template_preprocess_image().
+ */
+function unl_four_preprocess_image(&$vars) {
+  // If the image style name begins with 'wdn_band_bg' then stretch it.
+  if (substr($vars['style_name'], 0, 11) == 'wdn_band_bg') {
+    $vars['attributes']['class'][] = 'wdn-stretch';
+  }
 }
 
 /**
@@ -225,8 +241,12 @@ function unl_four_preprocess_region(&$vars) {
   $vars['region_name'] = str_replace('_', '-', $vars['region']);
   $vars['classes_array'][] = $vars['region_name'];
 
+  // Add grid class.
   if (in_array($vars['region'], array_keys($grid['regions']))) {
-    $vars['classes_array'][] = 'grid' . $grid['regions'][$vars['region']]['width'];
+    // Don't add if it would be a grid12.
+    if ($grid['regions'][$vars['region']]['width'] != 12) {
+      $vars['classes_array'][] = 'grid' . $grid['regions'][$vars['region']]['width'];
+    }
   }
 
   // Sidebar regions receive common 'sidebar' class
@@ -236,11 +256,19 @@ function unl_four_preprocess_region(&$vars) {
   }
 
   // Determine which region needs the 'first' class
-  if ($vars['region'] == 'content' && $grid['regions']['sidebar_first']['width'] == 0) {
+  if ($vars['region'] == 'content' &&
+      $grid['regions']['sidebar_first']['width'] == 0 &&
+      $grid['regions']['content']['width'] != 12) {
     $vars['classes_array'][] = 'first';
   }
   else if ($vars['region'] == 'sidebar_first') {
     $vars['classes_array'][] = 'first';
+  }
+
+  // Content regions receive 'wdn-band' class
+  $content_regions = array('content', 'content_top', 'content_bottom');
+  if (in_array($vars['region'], $content_regions)) {
+    $vars['classes_array'][] = 'wdn-band';
   }
 }
 

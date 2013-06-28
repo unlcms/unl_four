@@ -2,7 +2,7 @@
 
 /**
  * @file
- * unl_four theme implementation to display a region.
+ * unl_four theme implementation to display the navlinks region.
  *
  * Available variables:
  * - $content: The content for this region, typically blocks.
@@ -26,12 +26,5 @@
  * @see template_preprocess_region()
  * @see template_process()
  */
-?>
 
-<?php if ($region != 'navlinks'): ?>
-<div id="<?php print $region_name; ?>" class="<?php print $classes; ?>">
-<?php endif;?>
-  <?php print $content; ?>
-<?php if ($region != 'navlinks'): ?>
-</div>
-<?php endif;?>
+  print $content;

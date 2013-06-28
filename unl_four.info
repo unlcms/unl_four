@@ -12,15 +12,17 @@ stylesheets[all][] = css/views.css
 regions[page_top] = Page top
 regions[page_bottom] = Page bottom
 
-regions[content] = Main Content
+regions[navlinks] = Navigation links
+regions[content_top] = Content top
 regions[sidebar_first] = Sidebar first
+regions[content] = Content
 regions[sidebar_second] = Sidebar second
+regions[content_bottom] = Content bottom
 
-regions[navlinks] = Navigation Links
-regions[leftcollinks] = Related Links
-regions[contactinfo] = Contact Us
-regions[optionalfooter] = Optional Footer
-regions[footercontent] = Footer Content
+regions[optionalfooter] = Optional footer
+regions[leftcollinks] = Related links
+regions[contactinfo] = Contact us
+regions[footercontent] = Footer content
 
 plugins[panels][layouts] = layouts
 
