@@ -27,11 +27,6 @@ label {
   display: block;
 }
 
-/* Remove extra margin from Related Links */
-#leftcollinks .block {
-  margin-bottom: 0;
-}
-
 /* Fix for a Views page */
 #pagetitle {
   position: relative;
@@ -190,11 +185,6 @@ ul.links.inline {
   display: block;
   height: 0;
   visibility: hidden;
-}
-
-/* block */
-.block {
-  margin: 0 0 30px 0;
 }
 
 /* .node-teaser */
