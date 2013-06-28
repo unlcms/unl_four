@@ -123,6 +123,10 @@ ul.links.inline {
   content: "";
   display: block;
 }
+#block-views-bands-bands-top > h3,
+#block-views-bands-bands-bottom > h3 {
+  display: none;
+}
 
 
 /* taxonomy */
