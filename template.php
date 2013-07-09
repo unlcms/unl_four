@@ -162,7 +162,7 @@ function unl_four_preprocess_field(&$vars, $hook) {
  */
 function unl_four_preprocess_image(&$vars) {
   // If the image style name begins with 'wdn_band_bg' then stretch it.
-  if (substr($vars['style_name'], 0, 11) == 'wdn_band_bg') {
+  if (isset($vars['style_name']) && substr($vars['style_name'], 0, 11) == 'wdn_band_bg') {
     $vars['attributes']['class'][] = 'wdn-stretch';
   }
 }
@@ -281,14 +281,17 @@ function unl_four_preprocess_region(&$vars) {
 function unl_four_preprocess_node(&$vars) {
   // Template suggestions.
   if ($vars['view_mode'] == 'full') {
+    $vars['theme_hook_suggestions'][] = 'node__full';
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__full';
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__full';
   }
   elseif ($vars['view_mode'] == 'teaser') {
+    $vars['theme_hook_suggestions'][] = 'node__teaser';
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__teaser';
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__teaser';
   }
   elseif ($vars['view_mode'] == 'abbr_teaser') {
+    $vars['theme_hook_suggestions'][] = 'node__abbr_teaser';
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__abbr_teaser';
     $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__abbr_teaser';
   }
