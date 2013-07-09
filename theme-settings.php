@@ -143,10 +143,10 @@ function unl_four_form_system_theme_settings_alter(&$form, &$form_state) {
 function unl_four_form_system_theme_settings_submit($form, &$form_state) {
   // Delete existing files, then save them.
   foreach (array('css', 'js') as $type) {
-    _unl_four_delete_file('custom.' . $type);
+    _unl_four_delete_file('custom_unl_four.' . $type);
     if (drupal_strlen(trim($form_state['values']['unl_' . $type])) !== 0) {
-      _unl_four_save_file($form_state['values']['unl_' . $type], 'custom.' . $type);
-      drupal_set_message('File saved to custom/custom.' . $type . ' and will be automatically included on all pages.');
+      _unl_four_save_file($form_state['values']['unl_' . $type], 'custom_unl_four.' . $type);
+      drupal_set_message('File saved to custom/custom_unl_four.' . $type . ' and will be automatically included on all pages.');
     }
   }
   drupal_flush_all_caches();

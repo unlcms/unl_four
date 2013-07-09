@@ -173,7 +173,7 @@ function unl_four_preprocess_image(&$vars) {
 function unl_four_preprocess_html(&$vars, $hook) {
   // Add the CSS and JS files that are generated from the unl_four appearance settings page
   foreach (array('css', 'js') as $type) {
-    $file = variable_get('unl_custom_code_path', 'public://custom') . '/custom.' . $type;
+    $file = variable_get('unl_custom_code_path', 'public://custom') . '/custom_unl_four.' . $type;
     if (is_file($file)) {
       $func = 'drupal_add_'.$type;
       $func($file, array('type' => 'file', 'group' => ($type=='css'?CSS_THEME:JS_THEME), 'every_page' => TRUE));
