@@ -343,10 +343,8 @@ function unl_four_username_alter(&$name, $account) {
 function unl_four_preprocess_page(&$vars, $hook) {
 
   $loginUrl = url('user', array('query' => drupal_get_destination()));
-  $script = 'WDN.jQuery(function() {' . PHP_EOL
-          . '  WDN.idm.setLoginURL("' . $loginUrl . '");' . PHP_EOL
-          . '  WDN.idm.setLogoutURL("user/logout");' . PHP_EOL
-          . '});'
+  $script = '  WDN.setPluginParam("idm", "login", "' . $loginUrl . '");' . PHP_EOL
+          . '  WDN.setPluginParam("idm", "logout", "user/logout");' . PHP_EOL
           ;
   drupal_add_js($script, 'inline');
 
