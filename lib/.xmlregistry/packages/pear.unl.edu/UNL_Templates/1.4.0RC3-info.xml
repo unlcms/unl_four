@@ -20,9 +20,9 @@ This package allows you to render UNL Template styled pages using PHP Objects.
   <active>yes</active>
  </lead>
  <date>2013-09-13</date>
- <time>09:54:55</time>
+ <time>12:07:26</time>
  <version>
-  <release>1.4.0RC2</release>
+  <release>1.4.0RC3</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -38,16 +38,21 @@ Templates Supported:
 * Unlaffiliate
 * Unlaffiliate_debug
 * Unlaffiliate_local
+
+Fixed in this RC:
+* Use local .tpl files instead of always pulling remotely
+* Make HTML and DEP replacements when local files do not exist
 </notes>
  <contents>
   <dir name="/">
    <file role="test" name="test/pear.unl.edu/UNL_Templates/UNL_TemplatesTest.php" md5sum="12aa5989d1255dccc299a3dcdd6c6ba8"/>
-   <file role="php" name="php/UNL/Templates/Version4/Unlaffiliate_local.php" md5sum="99684ff819e55b0abc9303518396ebb2"/>
-   <file role="php" name="php/UNL/Templates/Version4/Unlaffiliate_debug.php" md5sum="e07d041720e4fe8ed1097c088b0d1a8c"/>
-   <file role="php" name="php/UNL/Templates/Version4/Unlaffiliate.php" md5sum="f29d592828009908fb0f7e2ac64cda28"/>
-   <file role="php" name="php/UNL/Templates/Version4/Fixed.php" md5sum="0942e876fe903bc062ae18bb4bff921e"/>
-   <file role="php" name="php/UNL/Templates/Version4/Debug.php" md5sum="0b6cafe0d382e1bb1a441abc93c07455"/>
-   <file role="php" name="php/UNL/Templates/Version4.php" md5sum="4822b1ff3e9cb395ca6fcfb4b9913218"/>
+   <file role="php" name="php/UNL/Templates/Version4/Unlaffiliate_local.php" md5sum="29aa6297ac4e0232b24ae1a8fe9f308b"/>
+   <file role="php" name="php/UNL/Templates/Version4/Unlaffiliate_debug.php" md5sum="6ea82eb59a907fd102be43ead8cbbaed"/>
+   <file role="php" name="php/UNL/Templates/Version4/Unlaffiliate.php" md5sum="484425e481e37630fa7751f9e11e094a"/>
+   <file role="php" name="php/UNL/Templates/Version4/Local.php" md5sum="3849a40fda6f284fa07b47984c77235f"/>
+   <file role="php" name="php/UNL/Templates/Version4/Fixed.php" md5sum="42734ab8643a005e1551a7613729177d"/>
+   <file role="php" name="php/UNL/Templates/Version4/Debug.php" md5sum="dd25adcf52c589bd099322231ca572e6"/>
+   <file role="php" name="php/UNL/Templates/Version4.php" md5sum="5b57e3495a1e6d946c5177d23c6565f1"/>
    <file role="php" name="php/UNL/Templates/Version3x1/Unlaffiliate_local.php" md5sum="e3f4b2b27e5cbbd81f3a434fdcd949d4"/>
    <file role="php" name="php/UNL/Templates/Version3x1/Unlaffiliate_debug.php" md5sum="0e7a53d410d00748c53cb9036d43a178"/>
    <file role="php" name="php/UNL/Templates/Version3x1/Unlaffiliate.php" md5sum="c9e2423f1508286947525968dddd56cb"/>
@@ -90,6 +95,12 @@ Templates Supported:
    <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/customization/customization_example.html" md5sum="26c8d867af8ffd4d8d60e348573f9c3d"/>
    <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/customization/CustomClass.php" md5sum="43bc783b2215f9668800ce2e80ad457b"/>
    <file role="doc" name="doc/pear.unl.edu/UNL_Templates/examples/convert.php" md5sum="a7114a3868d0ba54d4ff76b370ea3201"/>
+   <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version4/Unlaffiliate_local.tpl" md5sum="c39c8c2553dd541cade23ed8f0031017"/>
+   <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version4/Unlaffiliate_debug.tpl" md5sum="5013bd2410d9a9d962eec536fee0e855"/>
+   <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version4/Unlaffiliate.tpl" md5sum="91d4b14e957142ceea9dd47e50924813"/>
+   <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version4/Local.tpl" md5sum="90bd85043d58ecfd0d5a87f370aeea45"/>
+   <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version4/Fixed.tpl" md5sum="2b2cc7f7d80c681700c434b5cbf55d2f"/>
+   <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version4/Debug.tpl" md5sum="2e8f964c461d4c321b199c75b4a71f59"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/Unlaffiliate_local.tpl" md5sum="0802ccd854dfe1d6a3f0a22ad7ff09c4"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/Unlaffiliate_debug.tpl" md5sum="241be8cc9780847dece60b54358de9a3"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version3x1/Unlaffiliate.tpl" md5sum="5b30670bdbd48ecf9eaa9d6f505693f2"/>
@@ -116,7 +127,7 @@ Templates Supported:
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version2/Liquid.tpl" md5sum="1a936fdcd4d17383490bd5aef1219ce8"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version2/Fixed.tpl" md5sum="df5ce334e93b844794699f3cc62d20b9"/>
    <file role="data" name="data/pear.unl.edu/UNL_Templates/tpl_cache/Version2/Document.tpl" md5sum="61cc4ae92fac84a7d38131769c2298ba"/>
-   <file role="data" name="data/pear.unl.edu/UNL_Templates/cssUNLTemplates.ini" md5sum="a56a41abc8a324ef7029dd8b485204bf"/>
+   <file role="data" name="data/pear.unl.edu/UNL_Templates/cssUNLTemplates.ini" md5sum="e2360f35ff791e3566351d8baa955d5b"/>
   </dir>
  </contents>
  <dependencies>
