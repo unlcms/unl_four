@@ -1,9 +1,9 @@
 <?php
 /**
- * Base class for Version 3 (2009) template files.
- * 
+ * Base class for Version 4 (2013) template files.
+ *
  * PHP version 5
- *  
+ *
  * @category  Templates
  * @package   UNL_Templates
  * @author    Brett Bieber <brett.bieber@gmail.com>
@@ -15,8 +15,8 @@
 require_once 'UNL/Templates/Version.php';
 
 /**
- * Base class for Version 3 (2009) template files.
- * 
+ * Base class for Version 4 (2013) template files.
+ *
  * @category  Templates
  * @package   UNL_Templates
  * @author    Brett Bieber <brett.bieber@gmail.com>
@@ -25,7 +25,7 @@ require_once 'UNL/Templates/Version.php';
  * @link      http://pear.unl.edu/
  */
 class UNL_Templates_Version4 implements UNL_Templates_Version
-{ 
+{
     function getConfig()
     {
         return array('class_location' => 'UNL/Templates/Version4/',
@@ -40,18 +40,18 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
 
         // Always try and retrieve the latest
         if (!(UNL_Templates::getCachingService() instanceof UNL_Templates_CachingService_Null)
-            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/4.0/'.$template, false, $http_context)) {
+            && $tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.$template, false, $http_context)) {
             return $tpl;
         }
 
-        if ($tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/4.0/'.$template)) {
+        if ($tpl = file_get_contents('https://raw.github.com/unl/wdntemplates/master/Templates/'.$template)) {
             return $tpl;
         }
-        
+
 
         throw new Exception('Could not get the template file!');
     }
-    
+
     function makeIncludeReplacements($html)
     {
         UNL_Templates::debug('Now making template include replacements.',
@@ -66,7 +66,7 @@ class UNL_Templates_Version4 implements UNL_Templates_Version
             if (!file_exists($file)) {
                 UNL_Templates::debug('File does not exist:'.$file,
                              'makeIncludeReplacements', 3);
-                $file = 'https://raw.github.com/unl/wdntemplates/4.0'.$include;
+                $file = 'https://raw.github.com/unl/wdntemplates/master'.$include;
             }
             $html = str_replace('<!--#include virtual="'.$include.'" -->',
                                  file_get_contents($file), $html);
