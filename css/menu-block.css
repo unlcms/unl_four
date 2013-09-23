@@ -18,8 +18,8 @@
 .block-menu-block .content ul:first-child > li > a {display: block; background-color: #F2EDDE; padding: .5em .5em .5em 1.5em; margin-bottom: 1px; text-transform: uppercase; border-bottom: 1px solid #E2E2E2;}
 .block-menu-block .content ul:first-child > li > a {background-position: .3em center; background-repeat: no-repeat;}
 .block-menu-block .content ul:first-child > li > ul > li > a {background-position: 1em center; background-repeat: no-repeat;}
-.block-menu-block .content li.collapsed > a {background-image: url("../../../../misc/menu-collapsed.png");}
-.block-menu-block .content li.expanded > a {background-image: url("../../../../misc/menu-expanded.png");}
+.block-menu-block .content li.collapsed > a {background-image: url("../../../../../misc/menu-collapsed.png");}
+.block-menu-block .content li.expanded > a {background-image: url("../../../../../misc/menu-expanded.png");}
 .block-menu-block .content ul:first-child > li:last-child > a {border: none; margin: 0;}
 .block-menu-block .content ul:first-child > li > ul > li > a {display: block; background-color: #F2F2F2; padding: .5em .5em .5em 2.2em; margin-bottom: 1px;}
 .block-menu-block .content ul:first-child > li > ul > li > ul {padding: .5em 0 .5em 3.2em !important;}
