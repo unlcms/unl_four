@@ -110,17 +110,28 @@ else {
                       . render($page['content_top']) . PHP_EOL;
 }
 
-$t->maincontentarea .= '<div class="wdn-band">' . PHP_EOL;
+//Detect if we should wrap the page in a wdn-band
+$render_band = true;
+if (count($page['sidebar_first']) || $page['sidebar_second']) {
+  $render_band = false;
+}
 
-if (isset($page['sidebar_first'])) {
+if ($render_band) {
+  $t->maincontentarea .= '<div class="wdn-band">' . PHP_EOL;
+}
+
+if (!empty($page['sidebar_first'])) {
   $t->maincontentarea .= render($page['sidebar_first']) . PHP_EOL;
 }
 $t->maincontentarea .= render($page['content']) . PHP_EOL;
-if (isset($page['sidebar_second'])) {
+if (!empty($page['sidebar_second'])) {
   $t->maincontentarea .= render($page['sidebar_second']) . PHP_EOL;
 }
 
-$t->maincontentarea .= '</div>' . PHP_EOL;
+//Close the wdn-band if it was rendered.
+if ($render_band) {
+  $t->maincontentarea .= '</div>' . PHP_EOL;
+}
 
 $t->maincontentarea .= render($page['content_bottom']) . PHP_EOL;
 
