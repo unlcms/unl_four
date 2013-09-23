@@ -112,7 +112,7 @@ else {
 
 //Detect if we should wrap the page in a wdn-band
 $render_band = true;
-if (count($page['sidebar_first']) || $page['sidebar_second']) {
+if (count($page['sidebar_first']) || count($page['sidebar_second'])) {
   $render_band = false;
 }
 
