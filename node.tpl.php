@@ -98,7 +98,21 @@
 
   <?php print render($content['field_wdn_band_bg']); ?>
 
-  <div class="content wdn-inner-wrapper"<?php print $content_attributes; ?>>
+  <?php
+  //Get a list of rendered blocks in side bars.
+  $sidebar_first = block_list('sidebar_first');
+  $sidebar_second = block_list('sidebar_second');
+
+  //Default to adding a .wdn-inner-wrapper class to the node for a wdn-band.
+  $wrapper_class = 'wdn-inner-wrapper';
+
+  //If we will also be rendering sidebars, the page will be in a grid.  A wdn-band can not exist within a grid,
+  //so don't use a wdn-band wrapper.
+  if (count($sidebar_first) || count($sidebar_second)) {
+    $wrapper_class = '';
+  }
+  ?>
+  <div class="content <?php print $wrapper_class ?>"<?php print $content_attributes; ?>>
     <?php
       hide($content['field_wdn_band_bg']);
       // We hide the comments and links now so that we can render them later.
