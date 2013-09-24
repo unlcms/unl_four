@@ -16,7 +16,7 @@
 .block-menu-block .content ul a {border: none; font-size: .85em}
 .block-menu-block .content ul:first-child > li,
 .block-menu-block .content ul:first-child > li > ul > li {list-style-image: none !important; list-style-type: none !important;}
-.block-menu-block .content ul:first-child > li > a {display: block; background-color: #F2EDDE; padding: .5em .5em .5em 1.5em; margin-bottom: 1px; text-transform: uppercase; border-bottom: 1px solid #E2E2E2;}
+.block-menu-block .content ul:first-child > li > a {display: block; background-color: #F2EDDE; padding: .5em .5em .5em 1.5em; margin-bottom: 1px; border-bottom: 1px solid #E2E2E2;}
 .block-menu-block .content ul:first-child > li > a {background-position: .3em center; background-repeat: no-repeat;}
 .block-menu-block .content ul:first-child > li > ul > li > a {background-position: 1em center; background-repeat: no-repeat;}
 .block-menu-block .content li.collapsed > a {background-image: url("../../../../../misc/menu-collapsed.png");}
