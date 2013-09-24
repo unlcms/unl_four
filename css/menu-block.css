@@ -12,6 +12,7 @@
 .block-menu-block h3 a.active {background-color: transparent !important;}
 .block-menu-block ul {padding: 0 !important; list-style-image: none !important; list-style-type: none !important; margin: 0px}
 .block-menu-block li {padding: 0 !important;}
+.block-menu-block .content ul {background-color: #fff}
 .block-menu-block .content ul a {border: none}
 .block-menu-block .content ul:first-child > li,
 .block-menu-block .content ul:first-child > li > ul > li {list-style-image: none !important; list-style-type: none !important;}
