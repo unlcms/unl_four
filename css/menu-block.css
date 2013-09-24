@@ -7,7 +7,7 @@
 #maincontent .block-menu-block a {color: #333;}
 #maincontent .block-menu-block a:hover {color: #EE0000;}
 .block-menu-block a.active {background-color: #F2E8B1 !important;}
-.block-menu-block h3 {background-color: #95B8CC; color: #FFF !important; font-size: 1.4em !important; margin-bottom: 1px; padding: .25em .5em;}
+.block-menu-block h3 {background-color: #95B8CC; color: #FFF !important; font-size: 1.4em !important; margin-bottom: 1px; margin-bottom: 0px; padding: .25em .5em;}
 .block-menu-block h3 a {color: #FFF !important; border: none;}
 .block-menu-block h3 a.active {background-color: transparent !important;}
 .block-menu-block ul {padding: 0 !important; list-style-image: none !important; list-style-type: none !important; margin: 0px}
