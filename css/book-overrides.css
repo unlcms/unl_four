@@ -18,4 +18,5 @@
 .node-book .links a {
   color: #777 !important;
   font-size: .9em;
+    border: none;
 }
