@@ -4,19 +4,7 @@
  * We are using base 4.0 wdn form styles with customizations as needed.
  */
 
-.form-item .description {
-    position: relative;
-    top: -1.2em;
-}
-
-.webform-component-date select {
-    width: auto;
-}
-
-.webform-component-webform_time select {
-    width: auto;
-}
-
-.webform-component-managed_file input[type=file] {
-    width: auto;
-}
+.form-item .description {position: relative; top: -1.2em;}
+.webform-component-date select {width: auto;}
+.webform-component-webform_time select {width: auto;}
+.webform-component-managed_file input[type=file] {width: auto;}
