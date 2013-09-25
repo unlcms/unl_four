@@ -16,3 +16,7 @@
 .webform-component-webform_time select {
     width: auto;
 }
+
+.webform-component-managed_file input[type=file] {
+    width: auto;
+}
