@@ -8,3 +8,11 @@
     position: relative;
     top: -1.2em;
 }
+
+.webform-component-date select {
+    width: auto;
+}
+
+.webform-component-webform_time select {
+    width: auto;
+}
