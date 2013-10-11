@@ -146,10 +146,10 @@ ul.links.inline {
   color: #666;
 }
 .page-node .node-unl-newsitem .submitted .username {
-  color: #666 !important;
+  color: #666;
 }
 .page-node .node-unl-newsitem .submitted .username:hover {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 .page-node .node-unl-newsitem .submitted .datetime {
   font-style: italic;
@@ -197,7 +197,7 @@ ul.links.inline {
   padding: 10px;
 }
 .node-teaser.node-sticky {
-  background-color: #E8F4FF !important;
+  background-color: #E8F4FF;
   border: 1px solid #E1EAF0;
 }
 .content > .node-teaser:nth-child(odd) {
@@ -210,14 +210,14 @@ ul.links.inline {
   margin-bottom: 5px;
 }
 .node-teaser h2, .node-teaser h3, .node-teaser h4, .node-teaser h5, .node-teaser h6 {
-  padding-top: 0 !important;
+  padding-top: 0;
 }
 .node-teaser h2 a, .node-teaser h3 a, .node-teaser h4 a, .node-teaser h5 a, .node-teaser h6 a {
-  color: #444 !important;
-  font-size: 18px !important;
+  color: #444;
+  font-size: 18px;
 }
 .node-teaser h2 a:hover, .node-teaser h3 a:hover, .node-teaser h4 a:hover, .node-teaser h5 a:hover, .node-teaser h6 a:hover {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 .node-teaser .meta.submitted {
   font-size: .95em;
@@ -225,10 +225,10 @@ ul.links.inline {
   margin-bottom: 15px;
 }
 .node-teaser .meta.submitted .username {
-  color: #888 !important;
+  color: #888;
 }
 .node-teaser .meta.submitted .username:hover {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 .node-teaser .meta.submitted .datetime {
   font-style: italic;
@@ -240,7 +240,7 @@ ul.links.inline {
 .node-teaser .node-readmore a {
   background: #3388bb;
   padding: 3px 8px;
-  color: #eee !important;
+  color: #eee;
 }
 .node-teaser .field-type-image .field-item {
   float: left;
