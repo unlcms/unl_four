@@ -312,6 +312,18 @@ function unl_four_preprocess_node(&$vars) {
   else {
     $vars['submitted'] =  t('!datetime ', array('!datetime' => $vars['date']));
   }
+
+  // Add the wdn-inner-wrapper class.
+  if (!$vars['unl_remove_inner_wrapper']) {
+    // Only add the class if a TIMS template that applies to this node doesn't exist. This
+    // is for backwards compatibility since .wdn-inner-wrapper used to be added in a unl_four
+    // node.tpl.php file that would be overridden by the presence of a TIMS template.
+    $possible_templates = array_merge($vars['theme_hook_suggestions'], array('node'));
+    $tims_templates = array_keys(variable_get('tims_templates', array()));
+    if (empty(array_intersect($possible_templates, $tims_templates))) {
+      $vars['classes_array'][] = 'wdn-inner-wrapper';
+    }
+  }
 }
 
 /**
