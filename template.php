@@ -279,22 +279,10 @@ function unl_four_preprocess_region(&$vars) {
  * Implements template_preprocess_node().
  */
 function unl_four_preprocess_node(&$vars) {
-  // Template suggestions.
-  if ($vars['view_mode'] == 'full') {
-    $vars['theme_hook_suggestions'][] = 'node__full';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__full';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__full';
-  }
-  elseif ($vars['view_mode'] == 'teaser') {
-    $vars['theme_hook_suggestions'][] = 'node__teaser';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__teaser';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__teaser';
-  }
-  elseif ($vars['view_mode'] == 'abbr_teaser') {
-    $vars['theme_hook_suggestions'][] = 'node__abbr_teaser';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__abbr_teaser';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__abbr_teaser';
-  }
+  // Add template suggestions that include the view mode.
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['view_mode'];
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__' . $vars['view_mode'];
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__' . $vars['view_mode'];
 
   // Add forms css file if content type is webform.
   if ($vars['type'] == 'webform') {
