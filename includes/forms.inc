@@ -217,3 +217,28 @@ function unl_four_form_element($variables)
 
   return $output;
 }
+
+/**
+ * Theme a webform time element.
+ */
+function unl_four_webform_time($variables) {
+  $element = $variables['element'];
+
+  $element['hour']['#attributes']['class'] = array('hour');
+  $element['minute']['#attributes']['class'] = array('minute');
+
+  // Add error classes to all items within the element.
+  if (form_get_error($element)) {
+    $element['hour']['#attributes']['class'][] = 'error';
+    $element['minute']['#attributes']['class'][] = 'error';
+  }
+
+  $element['hour']['#title']           = 'New Hour';
+  $element['hour']['#title_display']   = 'invisible';
+  $element['minute']['#title']         = 'New Minute';
+  $element['minute']['#title_display'] = 'invisible';
+
+  $output = '<div class="webform-container-inline">' . drupal_render($element['hour']) . drupal_render($element['minute']) . drupal_render($element['ampm']) . '</div>';
+
+  return $output;
+}
