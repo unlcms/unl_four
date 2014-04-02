@@ -279,22 +279,10 @@ function unl_four_preprocess_region(&$vars) {
  * Implements template_preprocess_node().
  */
 function unl_four_preprocess_node(&$vars) {
-  // Template suggestions.
-  if ($vars['view_mode'] == 'full') {
-    $vars['theme_hook_suggestions'][] = 'node__full';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__full';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__full';
-  }
-  elseif ($vars['view_mode'] == 'teaser') {
-    $vars['theme_hook_suggestions'][] = 'node__teaser';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__teaser';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__teaser';
-  }
-  elseif ($vars['view_mode'] == 'abbr_teaser') {
-    $vars['theme_hook_suggestions'][] = 'node__abbr_teaser';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__abbr_teaser';
-    $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__abbr_teaser';
-  }
+  // Add template suggestions that include the view mode.
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['view_mode'];
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->type . '__' . $vars['view_mode'];
+  $vars['theme_hook_suggestions'][] = 'node__' . $vars['node']->nid . '__' . $vars['view_mode'];
 
   // Add forms css file if content type is webform.
   if ($vars['type'] == 'webform') {
@@ -311,6 +299,18 @@ function unl_four_preprocess_node(&$vars) {
   }
   else {
     $vars['submitted'] =  t('!datetime ', array('!datetime' => $vars['date']));
+  }
+
+  // Add the wdn-inner-wrapper class.
+  if (!$vars['unl_remove_inner_wrapper']) {
+    // Only add the class if a TIMS template that applies to this node doesn't exist. This
+    // is for backwards compatibility since .wdn-inner-wrapper used to be added in a unl_four
+    // node.tpl.php file that would be overridden by the presence of a TIMS template.
+    $possible_templates = array_merge($vars['theme_hook_suggestions'], array('node'));
+    $tims_templates = array_keys(variable_get('tims_templates', array()));
+    if (empty(array_intersect($possible_templates, $tims_templates))) {
+      $vars['classes_array'][] = 'wdn-inner-wrapper';
+    }
   }
 }
 
