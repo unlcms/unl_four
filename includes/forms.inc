@@ -107,7 +107,7 @@ function unl_four_webform_element($variables)
 }
 
 /**
- * Replacement for theme_webform_element().
+ * Replacement for theme_form_element().
  */
 function unl_four_form_element($variables)
 {
@@ -241,4 +241,20 @@ function unl_four_webform_time($variables) {
   $output = '<div class="webform-container-inline">' . drupal_render($element['hour']) . drupal_render($element['minute']) . drupal_render($element['ampm']) . '</div>';
 
   return $output;
+}
+
+/**
+ * implements theme_file
+ * 
+ * Renders the file element via core, then passes it to the theme wrapper, which adds labels.
+ * 
+ * @param $vars
+ *
+ * @return string
+ */
+function unl_four_file($vars) {
+  //Use the default theme_file
+  $vars['element']['#children'] = theme_file($vars);
+  //theme it to add labels
+  return theme('form_element', $vars);
 }
