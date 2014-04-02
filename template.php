@@ -308,7 +308,8 @@ function unl_four_preprocess_node(&$vars) {
     // node.tpl.php file that would be overridden by the presence of a TIMS template.
     $possible_templates = array_merge($vars['theme_hook_suggestions'], array('node'));
     $tims_templates = array_keys(variable_get('tims_templates', array()));
-    if (empty(array_intersect($possible_templates, $tims_templates))) {
+    $common_templates = array_intersect($possible_templates, $tims_templates);
+    if (empty($common_templates)) {
       $vars['classes_array'][] = 'wdn-inner-wrapper';
     }
   }
