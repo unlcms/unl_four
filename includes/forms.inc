@@ -2,6 +2,8 @@
 
 /**
  * Replacement for theme_webform_element().
+ * 
+ * Converts composite element labels into fieldsets, the label becomes a legend.
  */
 function unl_four_webform_element($variables)
 {
@@ -108,6 +110,8 @@ function unl_four_webform_element($variables)
 
 /**
  * Replacement for theme_form_element().
+ * 
+ * Moves invisible checkboxes and radio buttons to the right of the form control to pass WCAG2.0
  */
 function unl_four_form_element($variables)
 {
@@ -220,6 +224,8 @@ function unl_four_form_element($variables)
 
 /**
  * Theme a webform time element.
+ * 
+ * Adds labels so that it passes WCAG2.0
  */
 function unl_four_webform_time($variables) {
   $element = $variables['element'];
