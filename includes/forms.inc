@@ -33,7 +33,7 @@ function unl_four_webform_element($variables)
   // Composite elements consist of more than one HTML form control. These must be grouped by a fieldset.
   // Developers can mark any fieldtype as composite with #composite.
   // radios, checkboxes, and date are marked as composite. In D8, they are so marked in their respective form_process_*().
-  if (isset($element['#type']) && in_array($element['#type'], array('radios', 'checkboxes', 'date', 'webform_grid', 'webform_time'), true)) {
+  if (isset($element['#type']) && in_array($element['#type'], array('radios', 'checkboxes', 'date', 'webform_grid', 'webform_time', 'managed_file'), true)) {
     $element['#composite'] = true;
   }
 
