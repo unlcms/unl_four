@@ -1,5 +1,5 @@
 <?php
-
+require_once dirname(__FILE__) . '/includes/forms.inc';
 /**
  * Implements hook_block_view_alter().
  */
