@@ -4,6 +4,7 @@
  * Replacement for theme_webform_element().
  * 
  * Converts composite element labels into fieldsets, the label becomes a legend.
+ * see https://drupal.org/node/1195418
  */
 function unl_four_webform_element($variables)
 {
