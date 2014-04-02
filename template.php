@@ -1,5 +1,5 @@
 <?php
-require_once dirname(__FILE__) . '/includes/forms.inc';
+
 /**
  * Implements hook_block_view_alter().
  */
@@ -308,8 +308,8 @@ function unl_four_preprocess_node(&$vars) {
     // node.tpl.php file that would be overridden by the presence of a TIMS template.
     $possible_templates = array_merge($vars['theme_hook_suggestions'], array('node'));
     $tims_templates = array_keys(variable_get('tims_templates', array()));
-    $result = array_intersect($possible_templates, $tims_templates);
-    if (empty($result)) {
+    $common_templates = array_intersect($possible_templates, $tims_templates);
+    if (empty($common_templates)) {
       $vars['classes_array'][] = 'wdn-inner-wrapper';
     }
   }
