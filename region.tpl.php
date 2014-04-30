@@ -26,10 +26,18 @@
  * @see template_preprocess_region()
  * @see template_process()
  */
+
+$wrapper_id = 'id="' . $region_name . '"';
+$format = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
+  
+if ($format == 'partial') {
+  //don't give an id to the wrapper for partial requests.  This can result in duplicate ID errors.
+  $wrapper_id = '';
+}
 ?>
 
 <?php if ($region != 'navlinks'): ?>
-<div id="<?php print $region_name; ?>" class="<?php print $classes; ?>">
+<div <?php print $wrapper_id; ?> class="<?php print $classes; ?>">
 <?php endif;?>
   <?php print $content; ?>
 <?php if ($region != 'navlinks'): ?>
