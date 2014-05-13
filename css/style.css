@@ -53,37 +53,6 @@ ul.links.inline {
   padding-left: 0 !important;
 }
 
-/* Overrides of system.theme.css, form.css */
-#wdn_footer_feedback fieldset {
-  position: static;
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: none;
-}
-#wdn_feedback legend,
-#wdn_feedback_comments legend {
-  position: static;
-  top: auto;
-  left: auto;
-  color: #333;
-  line-height:1.7em;
-  text-indent: 0;
-  border: none;
-  background: none;
-  height: inherit;
-  width: inherit;
-}
-#wdn_copyright .block {
-  margin: 0;
-}
-#toolbarcontent fieldset {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-
 /**
  * WDN bands support
  */
