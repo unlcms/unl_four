@@ -53,6 +53,13 @@ ul.links.inline {
   padding-left: 0 !important;
 }
 
+/* Webform calendar image shouldn't stretch to 100% */
+input.webform-calendar {
+  width: auto;
+  vertical-align: baseline;
+  margin-left: 0.4em;
+}
+
 /**
  * WDN bands support
  */
