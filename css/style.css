@@ -35,11 +35,6 @@ label {
   position: static;
 }
 
-/* UNL css displays all ul in copyright area as inline, need to hide this */
-#wdn_copyright ul.contextual-links {
-  display: none;
-}
-
 /* Overrides of system.menus.css due to conflicts with UNL navigation */
 #navigation li {
   margin: 0;
