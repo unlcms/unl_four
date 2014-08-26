@@ -53,6 +53,11 @@ ul.links.inline {
   padding-left: 0 !important;
 }
 
+/* Color contrast of required * on form labels */
+.marker, .form-required {
+  color: #b40000;
+}
+
 /**
  * WDN bands support
  */
