@@ -526,7 +526,7 @@ function unl_four_menu_local_task($variables) {
 function unl_four_pager($variables) {
   // This is straight-copied from the default except with css class names changed and wdn css loaded
   // http://api.drupal.org/api/drupal/includes--pager.inc/function/theme_pager/7
-  drupal_add_js('WDN.loadCSS("/wdn/templates_3.0/css/content/pagination.css");', 'inline');
+  drupal_add_js("WDN.loadCSS(WDN.getTemplateFilePath('css/modules/pagination.css'));", 'inline');
 
   $tags = $variables['tags'];
   $element = $variables['element'];
