@@ -650,22 +650,19 @@ function unl_four_status_messages($variables) {
       case 'status':
         $extra_class = ' affirm';
         break;
-
       case 'warning':
         $extra_class = ' alert';
         break;
-
       case 'error':
         $extra_class = ' negate';
         break;
-
       default:
         $extra_class = '';
         break;
     }
     $type = ucfirst($type);
     $output .= <<<EOF
-<div class="wdn_notice$extra_class">
+<div class="wdn_notice overlay-header$extra_class">
     <div class="close">
         <a href="#" title="Close this notice">Close this notice</a>
     </div>
