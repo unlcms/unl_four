@@ -135,6 +135,11 @@ function unl_four_preprocess_block(&$vars) {
   if ($vars['block_html_id'] == 'block-book-navigation') {
     $vars['classes_array'][] = 'block-menu-block';
   }
+  // Add .wdn-sans-serif to menu blocks.
+  if ($vars['block_html_id'] == 'block-book-navigation' || substr($vars['block_html_id'], 0, 16) == 'block-menu-block' ) {
+    $vars['classes_array'][] = 'wdn-sans-serif';
+    $vars['title_attributes_array']['class'][] = 'wdn-sans-serif';
+  }
 }
 
 /**
