@@ -8,7 +8,7 @@
 .block-menu-block a.active {background-color: #F2E8B1 !important;}
 .block-menu-block h3 {background-color: #454542; color: #FFF; font-size: inherit; text-transform: uppercase; margin: 0; padding: 1em;}
 .block-menu-block h3 a {color: #fff; border: none;}
-.block-menu-block h3 a.active {background-color: transparent;}
+.block-menu-block h3 a.active {background-color: transparent !important;}
 .block-menu-block ul {background-color: #fff;padding: 0; list-style-image: none; list-style-type: none; margin: 0;}
 .block-menu-block li {padding: 0;}
 .block-menu-block ul a {border: none; font-size: .8em}
