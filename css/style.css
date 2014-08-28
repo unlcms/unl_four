@@ -48,6 +48,13 @@ ul.links.inline {
   padding-left: 0 !important;
 }
 
+/* Webform calendar image shouldn't stretch to 100% */
+input.webform-calendar {
+  width: auto;
+  vertical-align: baseline;
+  margin-left: 0.4em;
+}
+
 /* Color contrast of required * on form labels */
 .marker, .form-required {
   color: #b40000;
