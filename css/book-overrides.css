@@ -4,19 +4,19 @@
  */
 
 .book-navigation ul {
-  border-top: 1px solid #E1E1DB;
+  border-top: 1px solid #d5d5d2;
   padding: 1em 0 1em 3em !important;
-  margin-bottom: 30px;
+  margin-bottom: 3em;
 }
 .book-navigation .page-links {
-  background: #F7F7F7;
-  border-bottom: 1px solid #E1E1DB;
-  border-top: 1px solid #E1E1DB;
-  margin: 50px 0 20px;
+  background: #F4F3F0;
+  border-bottom: 1px solid #d5d5d2;
+  border-top: 1px solid #d5d5d2;
+  margin: 3em 0 1em;
 }
 .book-navigation .page-links a,
 .node-book .links a {
-  color: #717171 !important;
-  font-size: .9em;
-    border: none;
+  color: #525252;
+  font-size: .8em;
+  border: none;
 }
