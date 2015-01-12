@@ -89,11 +89,11 @@ if (isset($site_name) && !empty($site_name)) {
   else {
     $t->titlegraphic = $site_name;
   }
-  if (!empty($site_slogan) && theme_get_setting('unl_rso') == FALSE) {
-    $t->titlegraphic .= '<span>' . $site_slogan . '</span>';
-  }
   if (theme_get_setting('unl_rso')) {
     $t->titlegraphic .= '<span>A UNL Recognized Student Organization</span>';
+  }
+  else if (!empty($site_slogan)) {
+    $t->titlegraphic .= '<span>' . $site_slogan . '</span>';
   }
 }
 $t->pagetitle = '';
