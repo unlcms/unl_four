@@ -131,6 +131,14 @@ function unl_four_form_system_theme_settings_alter(&$form, &$form_state) {
       '#title' => t('Affiliate site'),
       '#default_value' => theme_get_setting('unl_affiliate'),
       '#description' => t('Grants access to the Color scheme picker, Logo image settings, Shortcut icon settings on this page for customizing the UNL template.'),
+      '#access' => !!count(array_intersect(array('administrator'), array_values($GLOBALS['user']->roles))),
+    ),
+    'unl_rso' => array(
+      '#type' => 'checkbox',
+      '#title' => t('RSO site'),
+      '#default_value' => theme_get_setting('unl_rso'),
+      '#description' => t('Adds text to the header and footer that designates the site as belonging to a Registered Student Organization.'),
+      '#access' => !!count(array_intersect(array('administrator'), array_values($GLOBALS['user']->roles))),
     ),
   );
   $form['#submit'][] = 'unl_four_form_system_theme_settings_submit';
