@@ -54,7 +54,7 @@ function unl_four_form_system_theme_settings_alter(&$form, &$form_state) {
     ),
   );
   $intermediate_breadcrumbs = theme_get_setting('intermediate_breadcrumbs');
-  for ($i = 0; $i < 3; $i++) {
+  for ($i = 0; $i < 5; $i++) {
     $form['intermediate_breadcrumbs'][] = array(
       'text' => array(
         '#type' => 'textfield',
