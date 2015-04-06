@@ -282,7 +282,7 @@ function unl_four_preprocess_region(&$vars) {
   // Add .wdn-inner-wrapper to the content region of system pages such as the Access Denied page and
   //   webform submission confirmation page. These are pages without nodes and without views.
   if ($vars['region'] == 'content' && !array_key_exists('nodes', $vars['elements']['system_main'])) {
-    if ((function_exists('views_get_page_view') && !views_get_page_view()) || !function_exists('views_get_page_view')) {
+    if (!function_exists('views_get_page_view') || !views_get_page_view()) {
       $vars['classes_array'][] = 'wdn-inner-wrapper';
     }
   }
