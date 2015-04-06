@@ -49,12 +49,12 @@ function unl_four_form_system_theme_settings_alter(&$form, &$form_state) {
       '#type' => 'textfield',
       '#title' => t('Site name abbreviation'),
       '#default_value' => theme_get_setting('site_name_abbreviation'),
-      '#description' => t('An abbreviated version of your site\'s name to use in breadcrumbs when not on the front page.'),
+      '#description' => t('An abbreviated version of your site\'s name to use in breadcrumbs.'),
       '#weight' => 10,
     ),
   );
   $intermediate_breadcrumbs = theme_get_setting('intermediate_breadcrumbs');
-  for ($i = 0; $i < 3; $i++) {
+  for ($i = 0; $i < 5; $i++) {
     $form['intermediate_breadcrumbs'][] = array(
       'text' => array(
         '#type' => 'textfield',
