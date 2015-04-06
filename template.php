@@ -462,9 +462,9 @@ function unl_four_breadcrumb($variables) {
     array_unshift($breadcrumbs, '<a href="http://www.unl.edu/">UNL</a>');
   }
 
-  //Append title of current page -- http://drupal.org/node/133242
+  // Append menu link title of current page -- http://drupal.org/node/133242
   if (!drupal_is_front_page()) {
-    $breadcrumbs[] = drupal_get_title();
+    $breadcrumbs[] = menu_get_active_title();
   }
 
   $html = '<ul>' . PHP_EOL;
