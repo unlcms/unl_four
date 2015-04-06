@@ -369,6 +369,15 @@ function unl_four_process_page(&$vars) {
   if (theme_get_setting('unl_affiliate') && module_exists('color')) {
     _color_page_alter($vars);
   }
+
+  // Add RSO disclaimer.
+  if (theme_get_setting('unl_rso')) {
+    foreach ($vars['page']['footercontent'] as $block => $value) {
+      if (!empty($vars['page']['footercontent'][$block]['#markup'])) {
+        $vars['page']['footercontent'][$block]['#markup'] =  $vars['page']['footercontent'][$block]['#markup'] . '<br />The views presented here are those of the ' . variable_get('site_name') . ' and do not necessarily reflect the views of the University of Nebraska&ndash;Lincoln.';
+      }
+    }
+  }
 }
 
 /**
