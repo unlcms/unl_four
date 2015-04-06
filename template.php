@@ -464,7 +464,7 @@ function unl_four_breadcrumb($variables) {
 
   // Append menu link title of current page -- http://drupal.org/node/133242
   if (!drupal_is_front_page()) {
-    $breadcrumbs[] = menu_get_active_title();
+    $breadcrumbs[] = check_plain(menu_get_active_title());
   }
 
   $html = '<ul>' . PHP_EOL;
