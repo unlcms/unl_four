@@ -49,7 +49,7 @@ function unl_four_form_system_theme_settings_alter(&$form, &$form_state) {
       '#type' => 'textfield',
       '#title' => t('Site name abbreviation'),
       '#default_value' => theme_get_setting('site_name_abbreviation'),
-      '#description' => t('An abbreviated version of your site\'s name to use in breadcrumbs when not on the front page.'),
+      '#description' => t('An abbreviated version of your site\'s name to use in breadcrumbs.'),
       '#weight' => 10,
     ),
   );
