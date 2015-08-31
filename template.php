@@ -735,8 +735,14 @@ function _unl_four_grid_info() {
   if (!isset($grid)) {
     $grid = array();
     $grid['width'] = 12;
-    $sidebar_first_width = (block_list('sidebar_first')) ? theme_get_setting('sidebar_first_width') : 0;
-    $sidebar_second_width = (block_list('sidebar_second')) ? theme_get_setting('sidebar_second_width') : 0;
+
+    if (module_exists('context') && $plugin = context_get_plugin('reaction', 'block')) {
+      $context['sidebar_first'] = $plugin->block_get_blocks_by_region('sidebar_first');
+      $context['sidebar_second'] = $plugin->block_get_blocks_by_region('sidebar_second');
+    }
+
+    $sidebar_first_width = (block_list('sidebar_first') || !empty($context['sidebar_first'])) ? theme_get_setting('sidebar_first_width') : 0;
+    $sidebar_second_width = (block_list('sidebar_second') || !empty($context['sidebar_second'])) ? theme_get_setting('sidebar_second_width') : 0;
     $grid['regions'] = array();
 
     $regions = array('sidebar_first', 'sidebar_second', 'content');
