@@ -1,5 +1,5 @@
-name = UNL Four
-description = This theme tracks the 4.x version of the UNL Web Framework.
+name = UNLedu 4.0
+description = This theme tracks the 4.0.x version of the UNL Web Framework.
 screenshot = screenshot.png
 core = 7.x
 engine = phptemplate
